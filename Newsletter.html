@@ -157,7 +157,6 @@
             opacity: 0.2;
         }
 
-        /* Animasi Bulat Checkmark - Berpindah dan Smooth */
         .benefit-icon {
             width: 24px;
             height: 24px;
@@ -166,33 +165,11 @@
             color: white;
             font-size: 0.75rem;
             flex-shrink: 0;
-            position: relative;
-            animation: floatAround 4s ease-in-out infinite;
+            display: flex; 
+            align-items: center;
+            justify-content: center;
         }
-
-        @keyframes floatAround {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-                box-shadow: 0 0 0 0 rgba(150,103,191,0.4);
-            }
-            25% {
-                transform: translate(3px, -3px) scale(1.1);
-                box-shadow: 0 0 0 6px rgba(150,103,191,0);
-            }
-            50% {
-                transform: translate(0, -5px) scale(1.05);
-                box-shadow: 0 0 0 0 rgba(150,103,191,0.4);
-            }
-            75% {
-                transform: translate(-3px, -3px) scale(1.1);
-                box-shadow: 0 0 0 6px rgba(150,103,191,0);
-            }
-        }
-
-        .benefit-item:nth-child(1) .benefit-icon { animation-delay: 0s; }
-        .benefit-item:nth-child(2) .benefit-icon { animation-delay: 1.3s; }
-        .benefit-item:nth-child(3) .benefit-icon { animation-delay: 2.6s; }
-
+        
         .benefit-item {
             animation: slideInRight 0.6s ease-out backwards;
         }
@@ -308,7 +285,7 @@
                 <!-- Form Section -->
                 <div class="col-lg-6 p-4 p-lg-5 order-2 order-lg-1">
                     <h2 class="mb-3">Daftar Sekarang</h2>
-                    <p class="text-secondary mb-4">Dapatkan link ke konten Eksklusif langsung dari inbox Anda</p>
+                    <p class="text-secondary mb-4">Dapatkan link ke konten Eksklusif langsung dari inbox para B'Pers</p>
                     
                     <form action="https://bincangperempuan.us10.list-manage.com/subscribe/post-json?u=f18d98cdbb3c4bad86e9698ce&amp;id=53e6fd72fe&amp;c=?" 
                         method="get" id="mc-embedded-subscribe-form" novalidate>
@@ -364,7 +341,7 @@
                 <!-- Visual Section -->
                 <div class="col-lg-6 visual-section p-4 p-lg-5 d-flex flex-column justify-content-center order-1 order-lg-2">
                     <div class="position-relative z-2 mb-4">
-                        <h3 class="mb-4">Apa yang Anda Dapatkan</h3>
+                        <h3 class="mb-4">Apa yang akan B'Pers Dapatkan</h3>
                         <div class="benefit-item d-flex align-items-start mb-3">
                             <div class="benefit-icon d-flex align-items-center justify-content-center me-3 fw-bold">✓</div>
                             <div>Notifikasi langsung di inbox untuk bacaan yang menginspirasi dan menggerakkan.</div>
@@ -403,7 +380,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <h3 class="mb-3">Bergabunglah dengan Gerakan Kami</h3>
-                <p class="text-secondary lh-lg mb-3">Newsletter Bincang Perempuan bukan sekadar buletin — ini adalah garis depan jurnalisme yang berpusat pada perempuan, kebenaran, keadilan, dan demokrasi.</p>
+                <p class="text-secondary lh-lg mb-3">Newsletter Bincang Perempuan adalah garis depan jurnalisme yang berpusat pada perempuan, kebenaran, keadilan, dan demokrasi.</p>
                 <p class="text-secondary lh-lg">Dipimpin oleh tim jurnalis dan peneliti perempuan, kami memberikan laporan berbasis fakta tentang isu-isu yang membentuk kehidupan perempuan Indonesia, memperkuat suara yang ingin dihapus, dan memperjuangkan masa depan yang lebih adil.</p>
                 <p class="text-secondary small mt-4">
                     Copyright © 2026 Bincang Perempuan, All rights reserved.<br
