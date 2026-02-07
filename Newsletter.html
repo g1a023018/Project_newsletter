@@ -171,6 +171,9 @@
         }
         
         .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
             animation: slideInRight 0.6s ease-out backwards;
         }
 
@@ -299,17 +302,17 @@
                         
                         <div class="mb-3">
                             <label for="mce-FNAME" class="form-label">Nama Depan <span class="text-danger">*</span></label>
-                            <input type="text" name="FNAME" class="form-control" id="mce-FNAME" required placeholder="Masukkan nama depan Anda">
+                            <input type="text" name="FNAME" class="form-control" id="mce-FNAME" required placeholder="Masukkan nama depan B'Pers">
                         </div>
                         
                         <div class="mb-3">
                             <label for="mce-LNAME" class="form-label">Nama Belakang <span class="text-danger">*</span></label>
-                            <input type="text" name="LNAME" class="form-control" id="mce-LNAME" required placeholder="Masukkan nama belakang Anda">
+                            <input type="text" name="LNAME" class="form-control" id="mce-LNAME" required placeholder="Masukkan nama belakang B'Pers">
                         </div>
 
                         <div class="mb-3">
                             <label for="mce-PHONE" class="form-label">Nomor Telepon</label>
-                            <input type="tel" name="PHONE" class="form-control" id="mce-PHONE" placeholder="*(Opsional) Masukkan nomor telepon Anda">
+                            <input type="tel" name="PHONE" class="form-control" id="mce-PHONE" placeholder="*(Opsional) Masukkan nomor telepon B'Pers">
                         </div>
 
                         <div class="form-check mb-4">
@@ -396,7 +399,7 @@
                 <div class="modal-body text-center">
                     <div class="success-icon d-flex align-items-center justify-content-center mx-auto mb-4 text-white fs-1">✓</div>
                     <h2 class="mb-3">Selamat!</h2>
-                    <p class="text-secondary mb-4">Anda telah berhasil berlangganan newsletter Bincang Perempuan. Terima kasih telah bergabung dengan komunitas kami!</p>
+                    <p class="text-secondary mb-4">B'Pers telah berhasil berlangganan newsletter Bincang Perempuan. Terima kasih telah bergabung dengan komunitas kami!</p>
                     <div class="d-grid gap-3">
                         <a href="https://circle.bincangperempuan.com/" class="btn btn-redirect-primary btn-lg rounded-3 text-white">
                             Lanjut ke Circle Community
@@ -432,7 +435,7 @@
                 $('#mce-error-response').addClass('d-none');
                 
                 if (!$('#mce-PRIVACY').is(':checked')) {
-                    $('#mce-error-response').html('Anda harus menyetujui Kebijakan Privasi.').removeClass('d-none');
+                    $('#mce-error-response').html('B\'Pers harus menyetujui Kebijakan Privasi.').removeClass('d-none');
                     return false;
                 }
 
@@ -443,12 +446,12 @@
                 }
 
                 if (!$('#mce-FNAME').val().trim()) {
-                    $('#mce-error-response').html('Mohon masukkan nama depan Anda.').removeClass('d-none');
+                    $('#mce-error-response').html('Mohon masukkan nama depan B\'Pers.').removeClass('d-none');
                     return false;
                 }
 
                 if (!$('#mce-LNAME').val().trim()) {
-                    $('#mce-error-response').html('Mohon masukkan nama belakang Anda.').removeClass('d-none');
+                    $('#mce-error-response').html('Mohon masukkan nama belakang B\'Pers.').removeClass('d-none');
                     return false;
                 }
 
