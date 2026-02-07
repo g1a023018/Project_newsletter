@@ -360,18 +360,6 @@
                     </div>
 
                     <div class="featured-images row g-3 position-relative z-2">
-                        <div class="col-4">
-                            <img src="https://bincangperempuan.com/wp-content/uploads/2025/12/featured-image-2026-1-9.webp" 
-                                 alt="Featured 1" class="img-fluid w-100 rounded-3">
-                        </div>
-                        <div class="col-4">
-                            <img src="https://bincangperempuan.com/wp-content/uploads/2025/12/featured-image-2026-5-1.webp" 
-                                 alt="Featured 2" class="img-fluid w-100 rounded-3">
-                        </div>
-                        <div class="col-4">
-                            <img src="https://bincangperempuan.com/wp-content/uploads/2025/12/featured-image-2026-2-2.webp" 
-                                 alt="Featured 3" class="img-fluid w-100 rounded-3">
-                        </div>
                     </div>
                 </div>
             </div>
@@ -427,6 +415,23 @@
         }(jQuery));
 
         $(document).ready(function() {
+            const wpApiUrl = "https://bincangperempuan.com/wp-json/wp/v2/posts?per_page=3&_embed";
+
+            $.getJSON(wpApiUrl, function(posts) {
+                let imageHtml = '';
+                posts.forEach(post => {
+                    let imageUrl = 'https://via.placeholder.com/300x169'; 
+                    if (post._embedded && post._embedded['wp:featuredmedia']) {
+                        imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
+                    }
+                    imageHtml += `
+                        <div class="col-4">
+                            <img src="${imageUrl}" alt="${post.title.rendered}" class="img-fluid w-100 rounded-3" style="height: 140px; object-fit: cover;">
+                        </div>`;
+                });
+                $('.featured-images').html(imageHtml);
+            });
+            
             var $form = $('#mc-embedded-subscribe-form');
             var successModal = new bootstrap.Modal($('#successModal')[0]);
             
