@@ -22,11 +22,13 @@
         body {
             font-family: 'IBM Plex Sans', sans-serif;
             background: linear-gradient(135deg, var(--cream) 0%, #FFF5F8 100%);
+            margin: 0;
+            padding: 0;
         }
 
         /* Header dengan Animasi Gradien */
         .header-banner {
-            padding: 80px 20px 120px;
+            padding: 60px 20px 100px;
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, #E4D0F2 0%, #D4B5E8 25%, #C5A4D9 50%, #D4B5E8 75%, #E4D0F2 100%);
@@ -59,8 +61,17 @@
             background: rgba(255,255,255,0.1);
         }
 
-        .floating-circle:nth-child(1) { top: -50%; right: -10%; width: 600px; height: 600px; animation: float 6s ease-in-out infinite; }
-        .floating-circle:nth-child(2) { bottom: -30%; left: -5%; width: 400px; height: 400px; animation: float 8s ease-in-out infinite reverse; }
+        .floating-circle:nth-child(1) { 
+            top: -50%; right: -10%; 
+            width: 600px; height: 600px; 
+            animation: float 6s ease-in-out infinite; 
+        }
+        
+        .floating-circle:nth-child(2) { 
+            bottom: -30%; left: -5%; 
+            width: 400px; height: 400px; 
+            animation: float 8s ease-in-out infinite reverse; 
+        }
 
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -74,15 +85,16 @@
 
         .header-content h1 {
             font-family: 'Nunito Sans', sans-serif;
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem); /* RESPONSIVE FONT */
             font-weight: 900;
             color: white;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
         }
 
-        .logo-section img {
-            max-width: 180px;
-            filter: brightness(0) invert(1);
+        .header-content p {
+            font-size: clamp(0.95rem, 2.5vw, 1.25rem); /* RESPONSIVE FONT */
+            line-height: 1.6;
         }
 
         /* Newsletter Card */
@@ -94,24 +106,52 @@
             overflow: hidden;
         }
 
-        /* Form Custom Styles */
+        /* Form Custom Styles - MOBILE OPTIMIZED */
+        .form-label {
+            font-size: clamp(0.9rem, 2vw, 1rem); /* RESPONSIVE LABEL */
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
         .form-control {
             border: 2px solid #E8E8E8;
             border-radius: 12px;
             padding: 14px 18px;
             background: #FAFAFA;
             transition: all 0.3s;
+            font-size: clamp(0.95rem, 2vw, 1rem); /* RESPONSIVE INPUT */
+            min-height: 48px; /* TOUCH FRIENDLY - minimal 44px */
         }
 
         .form-control:focus {
             border-color: var(--purple);
             background: white;
             box-shadow: 0 0 0 4px rgba(150,103,191,0.1);
+            outline: none;
+        }
+
+        .form-control::placeholder {
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem); /* RESPONSIVE PLACEHOLDER */
+            color: #999;
+        }
+
+        .form-check-input {
+            width: 20px;
+            height: 20px;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
         }
 
         .form-check-input:checked {
             background-color: var(--purple);
             border-color: var(--purple);
+        }
+
+        .form-check-label {
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem); /* RESPONSIVE CHECKBOX LABEL */
+            line-height: 1.5;
+            margin-left: 0.5rem;
         }
 
         .btn-submit {
@@ -121,13 +161,21 @@
             padding: 16px 24px;
             font-weight: 700;
             font-family: 'Nunito Sans', sans-serif;
+            font-size: clamp(1rem, 2.2vw, 1.125rem); /* RESPONSIVE BUTTON */
             box-shadow: 0 4px 20px rgba(150,103,191,0.3);
             transition: all 0.3s;
+            min-height: 52px; /* TOUCH FRIENDLY */
+            position: relative;
         }
 
         .btn-submit:hover:not(:disabled) {
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(150,103,191,0.4);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
         }
 
         /* Visual Section */
@@ -157,6 +205,10 @@
             opacity: 0.2;
         }
 
+        .visual-section h3 {
+            font-size: clamp(1.5rem, 3.5vw, 2rem); /* RESPONSIVE HEADING */
+        }
+
         .benefit-icon {
             width: 24px;
             height: 24px;
@@ -172,9 +224,11 @@
         
         .benefit-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 1rem;
             animation: slideInRight 0.6s ease-out backwards;
+            font-size: clamp(0.9rem, 2vw, 1rem); /* RESPONSIVE BENEFIT TEXT */
+            line-height: 1.6;
         }
 
         .benefit-item:nth-child(1) { animation-delay: 0.1s; }
@@ -191,6 +245,7 @@
             object-fit: cover;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            border-radius: 8px;
         }
 
         .featured-images img:hover {
@@ -200,6 +255,11 @@
         h2, h3 {
             font-family: 'Nunito Sans', sans-serif;
             font-weight: 800;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.25rem); /* RESPONSIVE H2 */
+            margin-bottom: 1rem;
         }
 
         /* Success Modal */
@@ -216,11 +276,22 @@
             to { transform: scale(1); }
         }
 
+        .modal-content h2 {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+        }
+
+        .modal-content p {
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            line-height: 1.6;
+        }
+
         .btn-redirect-primary {
             background: linear-gradient(135deg, var(--purple), var(--purple-accent));
             border: none;
             font-weight: 700;
+            font-size: clamp(1rem, 2vw, 1.125rem);
             box-shadow: 0 4px 20px rgba(150,103,191,0.3);
+            min-height: 50px;
         }
 
         .btn-redirect-primary:hover {
@@ -232,6 +303,8 @@
             border: 2px solid var(--purple);
             color: var(--purple);
             font-weight: 700;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            min-height: 50px;
         }
 
         .btn-redirect-secondary:hover {
@@ -256,16 +329,106 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Responsive */
+        /* Info Section - RESPONSIVE */
+        .info-section p {
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            line-height: 1.8;
+        }
+
+        .info-section .small {
+            font-size: clamp(0.8rem, 1.6vw, 0.875rem);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 991px) {
+            .newsletter-card {
+                margin-top: -40px;
+            }
+            
+            .header-banner {
+                padding: 50px 15px 80px;
+            }
+        }
+
         @media (max-width: 768px) {
-            .header-content h1 { font-size: 2.5rem; }
-            .featured-images img { height: 100px; }
+            .header-banner {
+                padding: 40px 15px 70px;
+            }
+            
+            .newsletter-card {
+                border-radius: 16px;
+                margin-top: -30px;
+            }
+            
+            .featured-images img {
+                height: 100px;
+            }
+            
+            /* MOBILE: Padding lebih kecil */
+            .col-lg-6.p-4.p-lg-5 {
+                padding: 2rem !important;
+            }
+            
+            .visual-section {
+                padding: 2rem !important;
+            }
+            
+            /* MOBILE: Form spacing */
+            .mb-3 {
+                margin-bottom: 1.25rem !important;
+            }
+            
+            .mb-4 {
+                margin-bottom: 1.5rem !important;
+            }
         }
 
         @media (max-width: 576px) {
-            .header-banner { padding: 60px 15px 100px; }
-            .header-content h1 { font-size: 2rem; }
-            .featured-images img { height: 80px; }
+            .header-banner {
+                padding: 30px 12px 60px;
+            }
+            
+            .newsletter-card {
+                border-radius: 12px;
+                margin-top: -20px;
+            }
+            
+            .featured-images img {
+                height: 80px;
+            }
+            
+            /* MOBILE: Padding minimal */
+            .col-lg-6.p-4.p-lg-5 {
+                padding: 1.5rem !important;
+            }
+            
+            .visual-section {
+                padding: 1.5rem !important;
+            }
+            
+            /* MOBILE: Smaller gaps */
+            .benefit-item {
+                margin-bottom: 0.75rem;
+                gap: 0.75rem;
+            }
+            
+            .benefit-icon {
+                width: 20px;
+                height: 20px;
+                font-size: 0.65rem;
+            }
+            
+            /* MOBILE: Button full width on small screens */
+            .d-grid.gap-3 {
+                gap: 0.75rem !important;
+            }
+        }
+
+        /* Floating circles hide on mobile */
+        @media (max-width: 768px) {
+            .floating-circle {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -276,7 +439,7 @@
         <div class="floating-circle"></div>
         <div class="header-content text-center">
             <h1>Newsletter</h1>
-            <p class="text-white fs-5 mb-3 opacity-75">Bergabunglah dengan ribuan perempuan yang mendapatkan insight berharga</p>
+            <p class="text-white mb-3 opacity-75">Bergabunglah dengan ribuan perempuan yang mendapatkan insight berharga</p>
             <p class="text-white opacity-75">"Ruang aman dan suportif bagi perempuan untuk belajar, berbagi dan bertumbuh bersama"</p>
         </div>
     </div>
@@ -312,12 +475,12 @@
 
                         <div class="mb-3">
                             <label for="mce-PHONE" class="form-label">Nomor Telepon</label>
-                            <input type="tel" name="PHONE" class="form-control" id="mce-PHONE" placeholder="*(Opsional) Masukkan nomor telepon B'Pers">
+                            <input type="tel" name="PHONE" class="form-control" id="mce-PHONE" placeholder="(Opsional) Masukkan nomor telepon B'Pers">
                         </div>
 
-                        <div class="form-check mb-4">
+                        <div class="form-check mb-4 d-flex align-items-start">
                             <input type="checkbox" name="PRIVACY" class="form-check-input" id="mce-PRIVACY" required>
-                            <label class="form-check-label small" for="mce-PRIVACY">
+                            <label class="form-check-label" for="mce-PRIVACY">
                                 Saya setuju dengan <a href="https://bincangperempuan.com/privacy-policy/" target="_blank" class="text-decoration-none" style="color: var(--purple);">Kebijakan Privasi</a> <span class="text-danger">*</span>
                             </label>
                         </div>
@@ -345,16 +508,16 @@
                 <div class="col-lg-6 visual-section p-4 p-lg-5 d-flex flex-column justify-content-center order-1 order-lg-2">
                     <div class="position-relative z-2 mb-4">
                         <h3 class="mb-4">Apa yang akan B'Pers Dapatkan</h3>
-                        <div class="benefit-item d-flex align-items-start mb-3">
-                            <div class="benefit-icon d-flex align-items-center justify-content-center me-3 fw-bold">✓</div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon me-3 fw-bold">✓</div>
                             <div>Notifikasi langsung di inbox untuk bacaan yang menginspirasi dan menggerakkan.</div>
                         </div>
-                        <div class="benefit-item d-flex align-items-start mb-3">
-                            <div class="benefit-icon d-flex align-items-center justify-content-center me-3 fw-bold">✓</div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon me-3 fw-bold">✓</div>
                             <div>Link akses ke artikel dan riset terbaru dari garis depan</div>
                         </div>
-                        <div class="benefit-item d-flex align-items-start">
-                            <div class="benefit-icon d-flex align-items-center justify-content-center me-3 fw-bold">✓</div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon me-3 fw-bold">✓</div>
                             <div>Komunitas yang saling menguatkan dalam memperjuangkan masa depan yang lebih adil.</div>
                         </div>
                     </div>
@@ -367,14 +530,14 @@
     </div>
 
     <!-- Info Section -->
-    <div class="container text-center mb-5 pb-5">
+    <div class="container text-center mb-5 pb-5 info-section">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <h3 class="mb-3">Bergabunglah dengan Gerakan Kami</h3>
-                <p class="text-secondary lh-lg mb-3">Newsletter Bincang Perempuan adalah garis depan jurnalisme yang berpusat pada perempuan, kebenaran, keadilan, dan demokrasi.</p>
-                <p class="text-secondary lh-lg">Dipimpin oleh tim jurnalis dan peneliti perempuan, kami memberikan laporan berbasis fakta tentang isu-isu yang membentuk kehidupan perempuan Indonesia, memperkuat suara yang ingin dihapus, dan memperjuangkan masa depan yang lebih adil.</p>
+                <p class="text-secondary mb-3">Newsletter Bincang Perempuan adalah garis depan jurnalisme yang berpusat pada perempuan, kebenaran, keadilan, dan demokrasi.</p>
+                <p class="text-secondary">Dipimpin oleh tim jurnalis dan peneliti perempuan, kami memberikan laporan berbasis fakta tentang isu-isu yang membentuk kehidupan perempuan Indonesia, memperkuat suara yang ingin dihapus, dan memperjuangkan masa depan yang lebih adil.</p>
                 <p class="text-secondary small mt-4">
-                    Copyright © 2026 Bincang Perempuan, All rights reserved.<br
+                    Copyright © 2026 Bincang Perempuan, All rights reserved.
                 </p>
             </div>
         </div>
@@ -426,7 +589,7 @@
                     }
                     imageHtml += `
                         <div class="col-4">
-                            <img src="${imageUrl}" alt="${post.title.rendered}" class="img-fluid w-100 rounded-3" style="height: 140px; object-fit: cover;">
+                            <img src="${imageUrl}" alt="${post.title.rendered}" class="img-fluid w-100">
                         </div>`;
                 });
                 $('.featured-images').html(imageHtml);
